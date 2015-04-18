@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1  id="list_item">Listing Items</h1>
+
+
+
+<ul id="product_list">
+  
+    <% @items.each do |item| %>
+     
+    <li>    
+       
+       
+       
+       
+  <%#= item.category %>
+        <%= link_to (image_tag item.imageurl), item %>
+        
+        
+        <br>
+       <h1> <%= item.name %></h1> <br>
+       <p> <%= item.description %></p>
+       <h3>€ <%= item.price %></h3>
+        
+        
+        
+        <div id="links">
+        <%= link_to 'Show', item %>
+        <%#= link_to 'Edit', edit_item_path(item) %>
+        <%#= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <a href="/cart/<%= item.id %>">Add to Cart</a>
+        </div>
+   
+   </li>
+    <% end %>
+ 
+</ul>
+<br>
+
+<%#= link_to 'New Item', new_item_path %>

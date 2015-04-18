@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ClisteWatch</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  
+<div id="main">
+  <img src="/assets/BookHeader.jpg"  width="100%" alt="head" id="top_img">
+    <ul id="main_nav">
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "About", page_about_path %></li>
+      <li><%= link_to "Products", items_path %></li>
+      <li><%= link_to "Shipping", page_shipping_path %></li>
+      <li><%= link_to "Contact", page_contact_path  %></li>
+       <li><%= link_to "Cart", cart_path  %></li>
+      <% if user_signed_in? %>
+      <li><%= link_to "SignOut", destroy_user_session_path, :method => :delete %></li>
+      <% else %>
+         <li><%= link_to "SignIn", new_user_session_path %></li>
+        <li> <%= link_to "SignUp", new_user_registration_path %></li>
+    <% end %>
+    </ul>
+  
+  <%= yield %>
+  
+  
+<div id="footer"><h2>ClisteWatche </h2><p>footer</p></div>
+
+</div>
+
+</body>
+</html>
