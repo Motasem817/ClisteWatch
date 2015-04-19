@@ -16,7 +16,7 @@
       <li><%= link_to "Products", items_path %></li>
       <li><%= link_to "Shipping", page_shipping_path %></li>
       <li><%= link_to "Contact", page_contact_path  %></li>
-       <li><%= link_to "Cart", cart_path  %></li>
+      <li><a href="/cart">Cart(<%=@total_items%>,€<%=@total_price%>)</a> </li>
       <% if user_signed_in? %>
       <li><%= link_to "SignOut", destroy_user_session_path, :method => :delete %></li>
       <% else %>
@@ -28,7 +28,7 @@
   <%= yield %>
   
   
-<div id="footer"><h2>ClisteWatche </h2><p>footer</p></div>
+<div id="footer"><h2>ClisteWatche </h2></div>
 
 </div>
 
